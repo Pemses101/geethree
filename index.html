@@ -1,825 +1,1423 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="google-adsense-account" content="ca-pub-2800512791202564">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-      <title>Geethree | Your Partner in Digital Excellence</title>
-    <!-- SEO (search engine optimization) -->
-    <meta name="description" content="Geethree is your one-stop solution for web development, app development, business management, graphics design, and interior design. Elevate your digital presence with our innovative and tailored services.">
-    <meta name="keywords" content="Geethree, web development, app development, business management, graphics design, interior design, digital solutions,nigeria web developers, nigeria web development companies">
-    <meta name="author" content="Geethree Team">
-    <meta name="robots" content="index, follow">
-    <meta name="og:title" content="Geethree | Your Partner in Digital Excellence">
-    <meta name="og:description" content="Elevate your digital presence with Geethree's web development, app development, business management, graphics design, and interior design services. Your journey to digital excellence starts here.">
-    <meta name="og:image" content="images/geethreeLogo.jpg">
-    <meta name="og:url" content="https://www.geethree.com">
-    <meta name="og:type" content="website">
-    <meta name="og:locale" content="en_US">
-    <meta name="twitter:card" content="">
-    <meta name="twitter:title" content="Geethree |Your Partner in Digital Excellence">
-    <meta name="twitter:description" content="Elevate your digital presence with Geethree's web development, app development, business management, graphics design, and interior design services. Your journey to digital excellence starts here.">
-    <meta name="twitter:image" content="images/geethreeLogo.jpg">
-    <link rel="canonical" href="https://www.geethree.com">
-    <link rel="icon" href="images/geethreeLogo.jpg" type="image/jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GeeThree | Your Partner in Digital Excellence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <!-- Favicon -->
-    <link href="img/geethreeLogo.jpg" rel="icon">
-    
-    <!-- import custom font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    :root {
+      --bg: #080c10;
+      --bg2: #0d1117;
+      --surface: #111820;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00e5a0;
+      --accent2: #0099ff;
+      --accent3: #ff6b35;
+      --text: #e8edf2;
+      --muted: #6b7a8d;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    html { scroll-behavior: smooth; }
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    /* Custom Cursor */
+    #cursor {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      transform: translate(-50%, -50%);
+    }
+    #cursor-ring {
+      position: fixed;
+      width: 40px; height: 40px;
+      border: 1px solid rgba(0,229,160,0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.4s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    }
+    body:has(a:hover) #cursor-ring,
+    body:has(button:hover) #cursor-ring {
+      width: 60px; height: 60px;
+      border-color: var(--accent);
+    }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.4;
+    }
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    
-    <!-- WOW.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
-    <!-- Custom Css -->
-     <style>
-    /**{*/
-    /*    font-family: "Nunito Sans", sans-serif !important;*/
-    /*}*/
-    h1,h2,h3,h4,h5,h6,p,a{
-        font-family: "Nunito Sans", sans-serif !important;
-    }
-        /* Navbar styling */
-    .navbar {
-      background-color: #007BFF !important;
-      
-    }
-    .nav-image{
-        border-radius: 50%;
-    }
-    .navbar-brand {
-      color: #ffffff !important; 
-      font-weight: bold;
-    }
-    .navbar-brand h2{
-        color: #ffffff !important;
-    }
-    .navbar-nav .nav-link {
-      color: #ffffff !important;
-      font-weight: 500;
-    }
-    .navbar-nav .nav-link:hover {
-      color: #f8f9fa !important; 
-    }
-    .navbar-toggler {
-      border-color: #ffffff !important; 
-    }
-    .navbar-toggler-icon {
-      background-color: #ffffff;
-    }
-    .nav-item a {
-        transition: all 800ms;
-    }
-    .nav-item a:hover {
-        /*scale: 1.2;*/
-        /*transform: translateY(-5px);*/
-    }
-    
-    .navbar .social-icons {
-        background-color: #007BFF !important;
-      display: none;
-    }
-    .arrow-up{
-        background-color: #007BFF !important;
-    }
-    @media (min-width: 992px) {
-      .navbar .social-icons {
-        display: flex !important;
-      }
-    }
-    /* Social icons */
-    .social-icons .btn {
-      background-color: #ffffff; 
-      color: #007bff !important; 
-    }
-    .social-icons .btn:hover {
-      background-color: #f8f9fa; 
-    }
-        
-    
-        /* Hero section styles */
-    .hero-section {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/geethree_bg.jpg') no-repeat center center/cover;
-      background-size: cover;
-      height: 90vh; /* Full viewport height */
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #ffffff;
+      justify-content: space-between;
+      padding: 1.2rem 5vw;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(8,12,16,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
       position: relative;
     }
-    .hero-section .overlay {
+    .nav-links a::after {
+      content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
     }
-    .hero-section h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: white;
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.2s !important;
     }
-    .hero-section p {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-    }
-    @media all and (max-width: 512px){
-        .hero-section h1{
-            font-size: 2rem;
-        }
-        .hero-section p{
-            font-size: 1rem;
-        }
-    }
-    .hero-section .btn {
-      font-size: 1.2rem;
-      padding: 12px 24px;
-      margin-right: 15px;
-    }
-    .hero-btn{
-        background-color:#007BFF !important ;
-        color:white;
-    }
-    .hero-btn:hover, .hero-btn-2:hover{
-        background-color: white !important;
-        color: #007BFF !important;
-    }
-    .hero-btn-2{
-        width:120px;
-    }
-    a{
-        cursor: pointer !important;
-    }
-    .testimonial-section {
-      background-color: #f0f8ff;
-      padding: 60px 0;
-    }
-    .testimonial-card {
+    .nav-cta:hover { background: #00ffc3 !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      background: none;
       border: none;
-      background-color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      padding: 20px;
+      padding: 4px;
     }
-    .testimonial-card img {
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
-    .testimonial-name {
-      color: #007bff;
-      font-size: 1.2em;
-      font-weight: 700;
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 5vw;
+      position: relative;
+      overflow: hidden;
     }
-    .testimonial-role {
-      color: #555;
-      font-size: 0.9em;
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
     }
-    .testimonial-text {
-      font-size: 1em;
-      color: #333;
-      margin-top: 10px;
+    .hero-glow {
+      position: absolute;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(0,229,160,0.08) 0%, transparent 70%);
+      top: -200px; right: -200px;
+      pointer-events: none;
     }
-        .skills-section {
-      background-color: #f0f8ff;
-      padding: 60px 0;
+    .hero-glow2 {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,153,255,0.06) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      pointer-events: none;
     }
-    .skills-card {
-      background-color: #ffffff;
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      padding: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .skills-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .skills-icon {
-      font-size: 3em;
-      color: #007bff;
-      margin-bottom: 20px;
-    }
-    .skills-title {
-      color: #007bff;
-      font-size: 1.5em;
-      font-weight: 700;
-    }
-    .skills-description {
-      font-size: 1em;
-      color: #333;
-    }
-    .footer {
-      background-color: #f8f9fa;
-    }
-    .footer .btn-link {
-      color: #007bff;
-    }
-    .footer .btn-link:hover {
-      text-decoration: none;
-    }
-    .footer .btn-square {
-      background-color: #007bff;
-      color: #ffffff !important;
-    }
-    .footer .btn-square:hover {
-      background-color: #0056b3;
-      color: #ffffff;
-    }
-    .footer .text-primary {
-      color: #007bff !important;
-    }
-    .footer .container {
-      max-width: 1200px;
-    }
-    .footer .social-icons .btn-square {
-      width: 40px;
-      height: 40px;
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      margin-right: 10px;
+      gap: 0.5rem;
+      background: rgba(0,229,160,0.1);
+      border: 1px solid rgba(0,229,160,0.25);
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      width: fit-content;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
     }
-    .footer-credit{
-        color: #007BFF !important;
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
     }
-    .footer-credit a{
-        color:grey !important;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
     }
-      .showcase-section {
-      background-color: #f0f8ff;
-      padding: 60px 0;
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
     }
-    .showcase-card {
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      padding: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .hero-title .line2 { color: var(--accent); }
+    .hero-title .line3 {
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      color: transparent;
     }
-    .showcase-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      font-weight: 300;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
     }
-    .showcase-icon {
-      font-size: 3em;
-      color: #007bff;
-      margin-bottom: 20px;
-    }
-    .showcase-title {
-      color: #007bff;
-      font-size: 1.5em;
-      font-weight: 700;
-    }
-    .showcase-description {
-      font-size: 3em;
-      font-weight: bold;
-      color: #333;
-    }
-   .about-section {
-      padding: 60px 0;
-    }
-    .about-section .content {
-      padding: 30px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .about-section .content:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .about-section .vision {
-      font-size: 3em;
-      margin-bottom: 20px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .about-section .card-icon {
-      font-size: 2em;
-      color: #007bff;
-      margin-bottom: 10px;
-    }
-    .about-section .vision-cards {
+    .hero-actions {
       display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
       flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #000;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 30px rgba(0,229,160,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(0,229,160,0.5);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.04);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.3rem;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 5vw;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.2s forwards;
+    }
+    .scroll-line {
+      width: 40px; height: 1px;
+      background: var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      animation: scrollLine 2s ease infinite;
+    }
+    @keyframes scrollLine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    /* Marquee */
+    .marquee-section {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--bg2);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 20s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      white-space: nowrap;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .marquee-item .dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* SECTIONS */
+    section { position: relative; z-index: 2; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--accent);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .section-title span { color: var(--accent); }
+
+    /* ABOUT */
+    #about {
+      padding: 8rem 5vw;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      margin-top: 5rem;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+    }
+    .about-card-icon {
+      width: 48px; height: 48px;
+      background: rgba(0,229,160,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
     }
-    .about-section .vision-card {
-      background-color: #f8f9fa;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+    .about-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .about-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .about-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .about-card.accent-card {
+      background: linear-gradient(135deg, rgba(0,229,160,0.15), rgba(0,153,255,0.1));
+      border-color: rgba(0,229,160,0.2);
+      grid-column: span 2;
+    }
+    .about-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+
+    /* SERVICES */
+    #services {
+      padding: 8rem 5vw;
+      background: var(--bg2);
+    }
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--surface);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease;
+      cursor: none;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,160,0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover { background: #161e28; }
+    .service-card:hover::after { opacity: 1; }
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      transition: color 0.2s;
+    }
+    .service-card:hover h3 { color: var(--accent); }
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .service-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .service-card:hover .service-arrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* STATS */
+    #stats {
+      padding: 6rem 5vw;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,160,0.04) 0%, rgba(0,153,255,0.04) 100%);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      position: relative;
+      z-index: 2;
+    }
+    .stat-item {
       text-align: center;
-      flex: 1 1 200px;
-      max-width: 250px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 3rem 2rem;
+      background: rgba(13,17,23,0.8);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: transform 0.3s ease, border-color 0.3s;
     }
-    .about-section .vision-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .stat-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,229,160,0.3);
     }
-    .about-section .image {
-      border-radius: 10px;
-      object-fit: cover;
-      max-height: 400px;
-      margin: 30px 0;
-      width: 100%;
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .feature-section {
-      padding: 60px 20px;
+    .stat-label {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
-    .feature-sub{
-        color: #007bff;
+
+    /* WHY US */
+    #why {
+      padding: 8rem 5vw;
+      background: var(--bg);
     }
-    .feature-section .feature-card {
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      padding: 30px;
-      height: 100%;
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
     }
-    .feature-section .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .why-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
     }
-    .feature-section .card-icon {
-      font-size: 50px;
-      color: #007bff;
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0%; height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 0.4s ease;
     }
-    .feature-section .feature-title {
-      font-size: 1.5rem;
-      color: #333;
-      margin-bottom: 15px;
+    .why-card:hover {
+      border-color: rgba(0,229,160,0.15);
+      transform: translateY(-4px);
     }
-    .feature-section .feature-description {
+    .why-card:hover::before { width: 100%; }
+    .why-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .why-card h3 {
+      font-family: var(--font-display);
       font-size: 1rem;
-      
-      color: #666;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .why-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* PROCESS */
+    #process {
+      padding: 8rem 5vw;
+      background: var(--bg2);
+    }
+    .process-steps {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
+      opacity: 0.4;
+    }
+    .process-step {
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .step-dot {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 2;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+    }
+    .process-step:hover .step-dot {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,229,160,0.1);
+    }
+    .process-step h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .process-step p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIALS */
+    #testimonials {
+      padding: 8rem 5vw;
+      overflow: hidden;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 4rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scrollbar-width: none;
+    }
+    .testimonials-track::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      min-width: 360px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      flex-shrink: 0;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(0,229,160,0.2);
+      transform: translateY(-4px);
+    }
+    .testimonial-stars {
+      color: #fbbf24;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .author-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #000;
+      flex-shrink: 0;
+    }
+    .author-info strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .author-info span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* CTA */
+    #cta {
+      padding: 8rem 5vw;
+      background: var(--bg2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute;
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,229,160,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    #cta .section-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      max-width: 700px;
+      margin: 0.5rem auto;
+      position: relative;
+      z-index: 2;
+    }
+    #cta p {
+      color: var(--muted);
+      max-width: 480px;
+      margin: 1rem auto 2.5rem;
+      font-size: 1.05rem;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 4rem 5vw 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+    .footer-brand .nav-logo {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .social-btn {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,229,160,0.08);
+    }
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-col ul a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* COUNTER */
+    .count { display: inline-block; }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-cards-grid { grid-template-columns: 1fr; }
+      .about-card.accent-card { grid-column: span 1; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .process-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    }
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.8rem; }
+    }
+
+    /* Mobile Nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,12,16,0.97);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--accent); }
+    .close-nav {
+      position: absolute;
+      top: 1.5rem; right: 5vw;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: none;
     }
   </style>
 </head>
-
 <body>
-    <!-- Spinner Start -->
-<!--     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div> -->
-    <!-- Spinner End -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
 
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="close-nav" id="closeNav">✕</button>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#why" onclick="closeMobileNav()">Why Us</a>
+    <a href="#testimonials" onclick="closeMobileNav()">Testimonials</a>
+    <a href="https://bit.ly/geethree" target="_blank">Contact</a>
+  </div>
 
-
-    <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top p-0 px-4 px-lg-5 pb-2">
-  <a href="index.html" class="navbar-brand d-flex align-items-center">
-    <img class="nav-image img-fluid me-2" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEip1vF1mzEA5tqsfrqEw27hKE3AOTNtI4nyKiRgvpLDZvNjqb_TgNtEpG6Crs9YdFP_QtREWAqmETy_7X-FBfoc_2sykElpJw-Mnpsgen-0vLR79qYyPwpXmFel1akD8hWXmEAfnmVpjmymSryJImMueBVj4GJWqFTHHTxb_8zjY6ZQaGpbdFj-blWNrGQQ/s150/F22F16D0-8B34-4A2C-AADB-3B2FE46F3A65.jpeg" alt="" style="width: 45px;">
-    <h2 class="m-0">GeeThree</h2>
-  </a>
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-    <span class="fas fa-bars"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a href="index.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item">
-        <a href="#about" class="nav-link">About</a>
-      </li>
-      <li class="nav-item">
-        <a href="#services" class="nav-link">Services</a>
-      </li>
-      <li class="nav-item">
-        <a href="http://blog.geethree.com.ng" class="nav-link">Blog</a>
-      </li>
-      <li class="nav-item">
-        <a href="contact.html" class="nav-link">Contact</a>
-      </li>
-              <li class="nav-item">
-        <a href="https://vtu.geethree.com.ng" class="nav-link">VTU</a>
-      </li>
-      <!-- Social Icons for Mobile within the collapse -->
-      <div class="d-lg-none mt-3 text-center d-flex">
-        <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-        <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="#"><i class="fab fa-twitter"></i></a>
-        <a class="btn btn-square rounded-circle bg-light text-primary" href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">Gee<span>Three</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="https://bit.ly/geethree" target="_blank" class="nav-cta">Get Started →</a></li>
     </ul>
-  </div>
-  <!-- Social Icons for Desktop outside the collapse -->
-  <div class="social-icons d-none d-lg-flex align-items-center">
-    <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-    <a class="btn btn-square rounded-circle bg-light text-primary me-2" href="#"><i class="fab fa-twitter"></i></a>
-    <a class="btn btn-square rounded-circle bg-light text-primary" href="#"><i class="fab fa-linkedin-in"></i></a>
-  </div>
-</nav>
-    <!-- Navbar End -->
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
 
+    <div class="hero-badge">🇳🇬 Based in Lagos, Nigeria</div>
 
-    <!-- Hero Section -->
-<section class="hero-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <h1 class="display-4">Welcome to GeeThree</h1>
-        <p class="lead">Transforming Ideas into Reality</p>
-        <a href="https://bit.ly/geethree" class="hero-btn btn">Reach Out</a>
-        <a href="http://blog.geethree.com.ng" class="hero-btn-2 btn btn-outline-light">Blog</a>
+    <h1 class="hero-title">
+      We Build<br/>
+      <span class="line2">Digital</span><br/>
+      <span class="line3">Excellence</span>
+    </h1>
+
+    <p class="hero-sub">GeeThree transforms your boldest ideas into powerful digital products — from stunning websites to robust apps and beyond.</p>
+
+    <div class="hero-actions">
+      <a href="https://bit.ly/geethree" target="_blank" class="btn-primary">Start a Project →</a>
+      <a href="http://blog.geethree.com.ng" target="_blank" class="btn-ghost">Read Our Blog</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num"><span class="count" data-target="220">0</span>+</div>
+        <div class="hero-stat-label">Websites Built</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span class="count" data-target="115">0</span>+</div>
+        <div class="hero-stat-label">Companies Built</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span class="count" data-target="121">0</span>+</div>
+        <div class="hero-stat-label">Architecture Projects</div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End Hero Section -->
 
-    <!-- About Start -->
-<div class="container about-section my-5 px-5" id="about">
-  <h2 class="vision">Our Vision</h2>
-  <div class="row justify-content-center">
-    <div class="col-md-8 text-center mb-4">
-      <img src="img/vision.jpg" class="img-fluid image" alt="About Us Image">
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll to explore
     </div>
-    <div class="col-md-10">
-      <div class="content">
-        <!--<h3 class="vision">Our Vision</h3>-->
-        <div class="vision-cards">
-          <div class="vision-card">
-            <i class="fas fa-lightbulb card-icon"></i>
-            <p>Integrate technology with human potential to unlock new possibilities, transforming ideas into impactful digital solutions.</p>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="dot"></span> Web Development</div>
+      <div class="marquee-item"><span class="dot"></span> Mobile Apps</div>
+      <div class="marquee-item"><span class="dot"></span> Graphic Design</div>
+      <div class="marquee-item"><span class="dot"></span> Digital Marketing</div>
+      <div class="marquee-item"><span class="dot"></span> Cyber Security</div>
+      <div class="marquee-item"><span class="dot"></span> Server Management</div>
+      <div class="marquee-item"><span class="dot"></span> Architecture</div>
+      <div class="marquee-item"><span class="dot"></span> VTU Services</div>
+      <!-- repeat for seamless loop -->
+      <div class="marquee-item"><span class="dot"></span> Web Development</div>
+      <div class="marquee-item"><span class="dot"></span> Mobile Apps</div>
+      <div class="marquee-item"><span class="dot"></span> Graphic Design</div>
+      <div class="marquee-item"><span class="dot"></span> Digital Marketing</div>
+      <div class="marquee-item"><span class="dot"></span> Cyber Security</div>
+      <div class="marquee-item"><span class="dot"></span> Server Management</div>
+      <div class="marquee-item"><span class="dot"></span> Architecture</div>
+      <div class="marquee-item"><span class="dot"></span> VTU Services</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label reveal">Our Story</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title reveal">Integrating Technology<br/> with <span>Human Potential</span></h2>
+        <p class="reveal reveal-delay-1">At GeeThree, we believe the best digital experiences emerge where <strong>cutting-edge technology</strong> meets deep human understanding. We don't just build products — we craft solutions that genuinely move your business forward.</p>
+        <p class="reveal reveal-delay-2">Our team brings together diverse expertise across development, design, architecture, and digital strategy — all under one roof, all focused on your success.</p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="https://bit.ly/geethree" target="_blank" class="btn-primary">Work With Us →</a>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-cards-grid">
+          <div class="about-card reveal reveal-delay-1">
+            <div class="about-card-icon">🚀</div>
+            <h3>Innovation First</h3>
+            <p>We embrace new ideas and continuously improve to stay at the industry forefront.</p>
           </div>
-          <div class="vision-card">
-            <i class="fas fa-users card-icon"></i>
-            <p>Leverage our team's diverse strengths to achieve collective success and deliver exceptional results.</p>
+          <div class="about-card reveal reveal-delay-2">
+            <div class="about-card-icon">🎯</div>
+            <h3>Client Focused</h3>
+            <p>Clients are central to everything we do. We build trust-based partnerships.</p>
           </div>
-          <div class="vision-card">
-            <i class="fas fa-brain card-icon"></i>
-            <p>Encourage innovation and continuous improvement to stay at the forefront of our industry.</p>
-          </div>
-          <div class="vision-card">
-            <i class="fas fa-heart card-icon"></i>
-            <p>Clients are central to everything we do, striving to understand their needs, exceed expectations, and build trust-based partnerships.</p>
+          <div class="about-card accent-card reveal reveal-delay-3">
+            <div class="about-card-icon">⚡</div>
+            <h3>Collective Excellence</h3>
+            <p>We leverage our team's diverse strengths to achieve extraordinary results for every project we take on.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-    <!-- About End -->
+  </section>
 
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-header">
+      <div>
+        <div class="section-label reveal">What We Do</div>
+        <h2 class="section-title reveal">Our <span>Services</span></h2>
+      </div>
+      <a href="https://bit.ly/geethree" target="_blank" class="btn-ghost reveal">View All Services →</a>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <span class="service-icon">🌐</span>
+        <h3>Web Development</h3>
+        <p>Creating responsive, modern websites built for performance, speed, and stunning user experience across all devices.</p>
+        <div class="service-arrow">Explore → </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <span class="service-icon">📱</span>
+        <h3>Mobile Development</h3>
+        <p>Native and cross-platform apps for Android and iOS that deliver seamless, intuitive experiences.</p>
+        <div class="service-arrow">Explore → </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <span class="service-icon">🎨</span>
+        <h3>Graphic Design</h3>
+        <p>Visually compelling graphics, brand identities, and layouts that tell your story and captivate your audience.</p>
+        <div class="service-arrow">Explore → </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <span class="service-icon">📈</span>
+        <h3>Digital Marketing</h3>
+        <p>Strategic promotion across digital channels — SEO, social, content — designed to grow your visibility and revenue.</p>
+        <div class="service-arrow">Explore → </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <span class="service-icon">🔒</span>
+        <h3>Cyber Security</h3>
+        <p>Comprehensive protection for your systems, networks, and data against modern digital threats.</p>
+        <div class="service-arrow">Explore → </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <span class="service-icon">🖥️</span>
+        <h3>Server Management</h3>
+        <p>Reliable infrastructure management ensuring your digital products stay fast, secure, and always online.</p>
+        <div class="service-arrow">Explore → </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stats-bg"></div>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="count" data-target="220">0</span>+</div>
+        <div class="stat-label">Websites Built</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number"><span class="count" data-target="115">0</span>+</div>
+        <div class="stat-label">Companies Launched</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number"><span class="count" data-target="121">0</span>+</div>
+        <div class="stat-label">Architecture Projects</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Facts Start -->
-<div class="container showcase-section px-5">
-  <div class="row">
-    <!-- Architectural Services -->
-    <div class="col-md-4 mb-4">
-      <div class="showcase-card text-center p-4 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="showcase-icon">
-          <i class="fas fa-drafting-compass"></i>
-        </div>
-        <h5 class="showcase-title">Architectural Services</h5>
-        <p class="showcase-description" id="architectural">121</p>
+  <!-- WHY US -->
+  <section id="why">
+    <div class="section-label reveal">Why GeeThree</div>
+    <h2 class="section-title reveal">The Best <span>In The Industry</span></h2>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">🏠</div>
+        <h3>Comprehensive Services</h3>
+        <p>One-stop solution for web development, design, architecture, and app development. Simplifying your project needs under one roof.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">💡</div>
+        <h3>Experienced Team</h3>
+        <p>Highly skilled professionals with extensive experience in their fields, ensuring top-quality results for every single project.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">✅</div>
+        <h3>Quality Assurance</h3>
+        <p>Strict quality control processes maintaining the highest standards in design and execution, with unrelenting attention to detail.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">⏱️</div>
+        <h3>Timely Delivery</h3>
+        <p>We respect your timelines. Prompt delivery without ever compromising on quality is a core part of how we operate.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">💰</div>
+        <h3>Competitive Pricing</h3>
+        <p>Premium services at competitive prices, ensuring you get maximum value from every naira invested with us.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">🌱</div>
+        <h3>Sustainability</h3>
+        <p>Incorporating eco-friendly practices and responsible materials, promoting long-term sustainability in every project.</p>
       </div>
     </div>
-    <!-- Websites Built -->
-    <div class="col-md-4 mb-4">
-      <div class="showcase-card text-center p-4 wow fadeInUp" data-wow-delay="0.3s">
-        <div class="showcase-icon">
-          <i class="fas fa-code"></i>
-        </div>
-        <h5 class="showcase-title">Websites Built</h5>
-        <p class="showcase-description" id="websites">220</p>
-      </div>
-    </div>
-    <!-- Companies Built -->
-    <div class="col-md-4 mb-4">
-      <div class="showcase-card text-center p-4 wow fadeInUp" data-wow-delay="0.5s">
-        <div class="showcase-icon">
-          <i class="fas fa-building"></i>
-        </div>
-        <h5 class="showcase-title">Companies Built</h5>
-        <p class="showcase-description" id="companies">115</p>
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
 
-    <!-- Facts End -->
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="section-label reveal">How We Work</div>
+    <h2 class="section-title reveal">Our <span>Process</span></h2>
+    <div class="process-steps">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-dot">01</div>
+        <h3>Discovery</h3>
+        <p>We start by deeply understanding your goals, audience, and vision to define the right direction.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-dot">02</div>
+        <h3>Strategy</h3>
+        <p>We map out a clear technical and creative roadmap tailored to your specific needs and timeline.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-dot">03</div>
+        <h3>Build</h3>
+        <p>Our team executes with precision — designing, developing, and iterating until it's exceptional.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="step-dot">04</div>
+        <h3>Launch & Support</h3>
+        <p>We deploy, monitor, and provide ongoing support to ensure everything runs smoothly post-launch.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Feature Starts here -->
-<div class="container-fluid feature-section" >
-  <div class="container">
-    <div class="text-center mb-5">
-      <h1 class="display-6">Why Us!</h1>
-      <p class="feature-sub fs-5 mb-5">The Best In The Industry</p>
-    </div>
-    <div class="row justify-content-center">
-      <!-- Feature 1 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="feature-card text-center">
-          <i class="fa fa-cogs card-icon"></i>
-          <h5 class="feature-title mt-3">Comprehensive Services</h5>
-          <p class="feature-description">One-stop solution for web development, design, architecture, and app development. Simplifying your project needs under one roof.</p>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-label reveal">Client Reviews</div>
+    <h2 class="section-title reveal">What They <span>Say</span></h2>
+    <div class="testimonials-track">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"GeeThree transformed our vision into a sleek, user-friendly platform. The team was professional, responsive, and delivered beyond our expectations."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">HO</div>
+          <div class="author-info">
+            <strong>Henry Oloye</strong>
+            <span>CEO, InnovateTech Solutions</span>
+          </div>
         </div>
       </div>
-      <!-- Feature 2 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="feature-card text-center">
-          <i class="fa fa-users card-icon"></i>
-          <h5 class="feature-title mt-3">Experienced Team</h5>
-          <p class="feature-description">Highly skilled professionals with extensive experience in their fields, ensuring top-quality results for every project.</p>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"GeeThree's solutions genuinely enhanced our productivity and efficiency. They understand what businesses need and they deliver it. Our go-to tech partner."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JS</div>
+          <div class="author-info">
+            <strong>Jane Smith</strong>
+            <span>Marketing Manager, Bloom Agency</span>
+          </div>
         </div>
       </div>
-      <!-- Feature 3 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="feature-card text-center">
-          <i class="fa fa-check-circle card-icon"></i>
-          <h5 class="feature-title mt-3">Quality Assurance</h5>
-          <p class="feature-description">Strict quality control processes to maintain the highest standards in design and execution, focusing on attention to detail.</p>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"GeeThree's design expertise perfectly captured our brand essence. The team is creative, responsive, and truly committed to getting it right."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AJ</div>
+          <div class="author-info">
+            <strong>Alice Johnson</strong>
+            <span>COO, Urban Oasis Co.</span>
+          </div>
         </div>
       </div>
-      <!-- Feature 4 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="feature-card text-center">
-          <i class="fa fa-clock card-icon"></i>
-          <h5 class="feature-title mt-3">Timely Delivery</h5>
-          <p class="feature-description">Respecting project timelines and deadlines, ensuring prompt delivery without compromising on quality.</p>
-        </div>
-      </div>
-      <!-- Feature 5 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="feature-card text-center">
-          <i class="fa fa-tags card-icon"></i>
-          <h5 class="feature-title mt-3">Competitive Pricing</h5>
-          <p class="feature-description">Offering premium services at competitive prices, ensuring maximum value for your investment.</p>
-        </div>
-      </div>
-      <!-- Feature 6 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="feature-card text-center">
-          <i class="fa fa-leaf card-icon"></i>
-          <h5 class="feature-title mt-3">Sustainability</h5>
-          <p class="feature-description">Incorporating eco-friendly practices and materials in our projects, promoting sustainability and responsibility.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Feature Ends here -->
-
-    <!-- Service Start -->
-    
-<div class="container skills-section px-5" id="services">
-  <h2 class="text-center mb-5">Our Skills</h2>
-  <div class="row">
-    <!-- Skill 1 -->
-    <div class="col-md-4 mb-4">
-      <div class="skills-card text-center">
-        <div class="skills-icon">
-          <i class="fas fa-code"></i>
-        </div>
-        <h5 class="skills-title">Web Development</h5>
-        <p class="skills-description">Creating responsive and modern websites.</p>
-      </div>
-    </div>
-    <!-- Skill 2 -->
-    <div class="col-md-4 mb-4">
-      <div class="skills-card text-center">
-        <div class="skills-icon">
-          <i class="fas fa-paint-brush"></i>
-        </div>
-        <h5 class="skills-title">Graphic Design</h5>
-        <p class="skills-description">Designing visually appealing graphics and layouts.</p>
-      </div>
-    </div>
-    <!-- Skill 3 -->
-    <div class="col-md-4 mb-4">
-      <div class="skills-card text-center">
-        <div class="skills-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h5 class="skills-title">Digital Marketing</h5>
-        <p class="skills-description">Promoting brands through digital channels.</p>
-      </div>
-    </div>
-    <!-- Skill 4 -->
-    <div class="col-md-4 mb-4">
-      <div class="skills-card text-center">
-        <div class="skills-icon">
-          <i class="fas fa-mobile-alt"></i>
-        </div>
-        <h5 class="skills-title">Mobile Development</h5>
-        <p class="skills-description">Building apps for Android and iOS platforms.</p>
-      </div>
-    </div>
-    <!-- Skill 5 -->
-    <div class="col-md-4 mb-4">
-      <div class="skills-card text-center">
-        <div class="skills-icon">
-          <i class="fas fa-server"></i>
-        </div>
-        <h5 class="skills-title">Server Management</h5>
-        <p class="skills-description">Maintaining and managing server infrastructure.</p>
-      </div>
-    </div>
-    <!-- Skill 6 -->
-    <div class="col-md-4 mb-4">
-      <div class="skills-card text-center">
-        <div class="skills-icon">
-          <i class="fas fa-lock"></i>
-        </div>
-        <h5 class="skills-title">Cyber Security</h5>
-        <p class="skills-description">Protecting systems and networks from cyber threats.</p>
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- Service End -->
-    
-    
-
-
-<!--  Testimonial start -->
-<div class="container testimonial-section px-4 mt-5">
-  <h2 class="text-center mb-5">Testimonials</h2>
-  <div class="row">
-    <!-- Testimonial 1 -->
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="testimonial-card text-center p-4">
-        <img src="https://images.pexels.com/photos/4559600/pexels-photo-4559600.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person 1">
-        <h5 class="testimonial-name mt-3">Henry Oloye</h5>
-        <p class="testimonial-role">CEO, InnovateTech Solutions</p>
-        <p class="testimonial-text">"GeeThree transformed our vision into a sleek, user-friendly platform. Highly recommend!"</p>
-      </div>
-    </div>
-    <!-- Testimonial 2 -->
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="testimonial-card text-center p-4">
-        <img src="https://images.pexels.com/photos/3817644/pexels-photo-3817644.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person 2">
-        <h5 class="testimonial-name mt-3">Jane Smith</h5>
-        <p class="testimonial-role">Marketing Manager, Bloom Marketing Agency</p>
-        <p class="testimonial-text">"GeeThree's solutions enhanced our productivity and efficiency. They are our go-to tech partner."</p>
-      </div>
-    </div>
-    <!-- Testimonial 3 -->
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="testimonial-card text-center p-4">
-        <img src="https://images.pexels.com/photos/1093926/pexels-photo-1093926.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person 3">
-        <h5 class="testimonial-name mt-3">Alice Johnson</h5>
-        <p class="testimonial-role">COO, Urban Oasis Co</p>
-        <p class="testimonial-text">"GeeThree's design expertise perfectly captured our brand. Creative and responsive team!"</p>
-      </div>
-    </div>
-    <!-- Testimonial 4 -->
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="testimonial-card text-center p-4">
-        <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person 4">
-        <h5 class="testimonial-name mt-3">Michael Brown</h5>
-        <p class="testimonial-role">Developer, Web Agency</p>
-        <p class="testimonial-text">"GeeThree's web development expertise is unparalleled. Highly skilled and responsive team!"</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Testimonial end -->
-
-
-<!-- Footer Start -->
-<div class="container-fluid footer mt-5 pt-5">
-  <div class="container py-5">
-    <div class="row g-5">
-      <div class="col-lg-4 col-md-6">
-        <h1 class="text-primary mb-4"><img class="img-fluid me-2" src="https://geethree.com.ng/images/geethreeLogo.jpg" alt="" style="width: 45px;">GeeThree</h1>
-        <p>We embrace creativity and continuous improvement. We foster an environment that encourages new ideas, solutions, and technologies to stay at the forefront of our industry.</p>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <h5 class="mb-4">Get In Touch</h5>
-        <p><i class="fa fa-map-marker-alt me-3"></i>Lekki phase 1, Lagos, Nigeria</p>
-        <p><i class="fa fa-phone-alt me-3"></i>+2348104425795</p>
-        <p><i class="fa fa-envelope me-3"></i>contact@geethree.com.ng</p>
-      </div>
-      <div class="col-lg-2 col-md-6">
-        <h5 class="mb-4">Quick Links</h5>
-        <a class="btn btn-link" href="#about">About Us</a>
-        <a class="btn btn-link" href="#contact">Contact Us</a>
-        <a class="btn btn-link" href="#services">Our Services</a>
-        <a class="btn btn-link" href="https://gee-three.blogspot.com">Our Blog</a>
-        <a class="btn btn-link" href="https://vtu.geethree.com.ng">GeeThree VTU</a>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <h5 class="mb-4">Follow Us</h5>
-        <div class="social-icons">
-          <a class="btn btn-square rounded-circle me-1" href="#"><i class="fab fa-twitter"></i></a>
-          <a class="btn btn-square rounded-circle me-1" href="#"><i class="fab fa-facebook-f"></i></a>
-          <a class="btn btn-square rounded-circle me-1" href="#"><i class="fab fa-youtube"></i></a>
-          <a class="btn btn-square rounded-circle me-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"GeeThree's web development expertise is unparalleled. Highly skilled, responsive, and they actually care about the quality of what they ship."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MB</div>
+          <div class="author-info">
+            <strong>Michael Brown</strong>
+            <span>Developer, Web Agency</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container-fluid bg-light py-3">
-    <div class="container">
-      <div class="row">
-        <div class="footer-credit col-md-6 text-center text-md-start mb-3 mb-md-0">
-          &copy; <a href="#">GeeThree</a>, All Right Reserved.
-        </div>
-        <div class="footer-credit col-md-6 text-center text-md-end">
-          Designed By <a href="https://geethree.com.ng">GeeThree Web Dev.</a>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="cta-glow"></div>
+    <div class="section-label reveal" style="justify-content:center;">Let's Build Together</div>
+    <h2 class="section-title reveal">Ready to Start<br/><span>Your Project?</span></h2>
+    <p class="reveal">Tell us your vision. We'll handle the rest — from strategy to launch and beyond.</p>
+    <div class="cta-actions reveal">
+      <a href="https://bit.ly/geethree" target="_blank" class="btn-primary">Get In Touch →</a>
+      <a href="http://blog.geethree.com.ng" target="_blank" class="btn-ghost">Read Our Blog</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Gee<span>Three</span></a>
+        <p>Transforming ideas into impactful digital solutions. We embrace creativity and continuous improvement to stay at the forefront of the industry.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="Twitter">𝕏</a>
+          <a href="#" class="social-btn" title="Instagram">◈</a>
+          <a href="#" class="social-btn" title="LinkedIn">in</a>
+          <a href="#" class="social-btn" title="Facebook">f</a>
         </div>
       </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#why">Why GeeThree</a></li>
+          <li><a href="http://blog.geethree.com.ng" target="_blank">Blog</a></li>
+          <li><a href="https://vtu.geethree.com.ng" target="_blank">GeeThree VTU</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Web Development</a></li>
+          <li><a href="#services">Mobile Apps</a></li>
+          <li><a href="#services">Graphic Design</a></li>
+          <li><a href="#services">Digital Marketing</a></li>
+          <li><a href="#services">Cyber Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">📍 Lekki Phase 1, Lagos, Nigeria</div>
+        <div class="footer-contact-item">📞 +234 810 442 5795</div>
+        <div class="footer-contact-item">✉️ contact@geethree.com.ng</div>
+      </div>
     </div>
-  </div>
-</div>
-<!-- Footer End -->
+    <div class="footer-bottom">
+      <span>© 2025 GeeThree. All rights reserved.</span>
+      <span>Designed & Built by <a href="#" style="color:var(--accent); text-decoration:none;">GeeThree Web Dev.</a></span>
+    </div>
+  </footer>
 
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      setTimeout(() => {
+        ring.style.left = e.clientX + 'px';
+        ring.style.top = e.clientY + 'px';
+      }, 80);
+    });
 
-    <!-- Back to Top -->
-    <a href="#" class="arrow-up btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeNav = document.getElementById('closeNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeNav.addEventListener('click', () => mobileNav.classList.remove('open'));
+    function closeMobileNav() { mobileNav.classList.remove('open'); }
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-    <!-- WOW.js and CountUp.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.9.3/countUp.min.js"></script>
-<script>
-  new WOW().init();
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var options = { useEasing: true, useGrouping: true, separator: ',', decimal: '.' };
-
-    var architectural = new CountUp('architectural', 0, 121, 0, 2.5, options);
-    if (!architectural.error) {
-      architectural.start();
-    } else {
-      console.error(architectural.error);
+    // Counter animation
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const duration = 1800;
+      const start = performance.now();
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target);
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(update);
     }
 
-    var websites = new CountUp('websites', 0, 220, 0, 2.5, options);
-    if (!websites.error) {
-      websites.start();
-    } else {
-      console.error(websites.error);
-    }
-
-    var companies = new CountUp('companies', 0, 115, 0, 2.5, options);
-    if (!companies.error) {
-      companies.start();
-    } else {
-      console.error(companies.error);
-    }
-  });
-</script>
-    
+    const counters = document.querySelectorAll('.count');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+  </script>
 </body>
 </html>
